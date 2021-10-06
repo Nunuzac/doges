@@ -7,3 +7,4 @@ class Breed(models.Model):
   class Meta:
     db_table = 'doges\".\"breed'
     managed = False
+    ordering = ['id']

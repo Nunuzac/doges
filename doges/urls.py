@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import include
 from django.urls import path
+from rest_framework import routers
 from doges.views import BreedView
+from doges.views import DogView
+
+router = routers.DefaultRouter()
+router.register(r'breed', BreedView)
+router.register(r'dog', DogView)
 
 urlpatterns = [
-    path('breed/', BreedView.as_view()),
+    path('', include(router.urls))
 ]

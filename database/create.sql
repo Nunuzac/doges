@@ -45,5 +45,3 @@ create user django with password '123Django';
 grant usage on schema doges to django;
 grant select, insert, update on all tables in schema doges to django;
 grant select, update on all sequences in schema doges to django;
-
-select * from doges.breed b 

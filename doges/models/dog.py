@@ -11,5 +11,6 @@ class Dog(models.Model):
   )
 	
   class Meta:
-    db_table = 'dog'
+    db_table = 'doges\".\"dog'
     managed = False
+    ordering = ['name']
