@@ -4,5 +4,5 @@ from doges.models import Dog
 class DogSerializer(serializers.HyperlinkedModelSerializer):
   
   class Meta:
-      model = Dog
-      fields = ['id', 'name', 'color', 'breed']
+    model = Dog
+    fields = ['id', 'name', 'color', 'breed']

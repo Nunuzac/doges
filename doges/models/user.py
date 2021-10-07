@@ -3,7 +3,7 @@ from .role import Role
 from .dog import Dog
 
 class User(models.Model):
-  id = models.AutoField(primary_key=True)
+  id = models.TextField(primary_key=True)
   name = models.TextField()
   hash = models.TextField()
   email = models.EmailField(unique=True)
@@ -14,7 +14,7 @@ class User(models.Model):
   dogs = models.ManyToManyField(
     Dog,
     through='Parenthood',
-    through_fields=('user_id', 'dog_id'),
+    symmetrical=False
   )
 	
   class Meta:

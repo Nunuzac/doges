@@ -16,12 +16,13 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
-from doges.views import BreedView
-from doges.views import DogView
+from doges import views
 
 router = routers.DefaultRouter()
-router.register(r'breed', BreedView)
-router.register(r'dog', DogView)
+router.register(r'breed', views.BreedView)
+router.register(r'dog', views.DogView)
+router.register(r'role', views.RoleView)
+router.register(r'user', views.UserView)
 
 urlpatterns = [
     path('', include(router.urls))
