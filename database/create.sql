@@ -6,13 +6,19 @@ create table doges.role (
 	primary key (id)
 );
 
-create table doges.user (
+create table doges.person (
 	id int not null,
 	name varchar not null,
-	hash varchar not null,
+	primary key (id)
+);
+
+create table doges.user (
+	person_id int not null,
+	password varchar not null,
 	email varchar not null unique,
 	role_id int not null,
-	primary key (id),
+	primary key (person_id),
+	foreign key (person_id) references doges.person(id), 
 	foreign key (role_id) references doges.role(id)
 );
 
@@ -36,7 +42,7 @@ create table doges.parenthood (
 	dog_id int not null,
 	date date not null,
 	primary key (user_id, dog_id),
-	foreign key (user_id) references doges.user(id),
+	foreign key (user_id) references doges.user(person_id),
 	foreign key (dog_id) references doges.dog(id)
 );
 

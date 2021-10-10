@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -26,9 +25,11 @@ SECRET_KEY = 'django-insecure--dh)$xsbqyq(y=q=-_pt6d=lnz(&q!hi4v((%jr3s8@99p%nr4
 DEBUG = True
 
 ALLOWED_HOSTS = [
-  'api.jojo.com'
+  'api.jojo.com',
+  'localhost'
 ]
 
+AUTH_USER_MODEL = 'doges.User'
 
 # Application definition
 
@@ -41,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'doges.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -86,7 +92,6 @@ DATABASES = {
         'PASSWORD': '123Django'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

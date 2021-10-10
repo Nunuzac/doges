@@ -17,13 +17,20 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
 from doges import views
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = routers.DefaultRouter()
 router.register(r'breed', views.BreedView)
 router.register(r'dog', views.DogView)
 router.register(r'role', views.RoleView)
 router.register(r'user', views.UserView)
+router.register(r'person', views.PersonView)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('api/token/', views.CustomObtainTokenView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]

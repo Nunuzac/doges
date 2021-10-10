@@ -1,22 +1,36 @@
 from django.db import models
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser
+)
+from django.db.models.fields.related import ForeignKey
 from .role import Role
-from .dog import Dog
+from .person import Person
 
-class User(models.Model):
-  id = models.TextField(primary_key=True)
-  name = models.TextField()
-  hash = models.TextField()
+class UserManager(BaseUserManager):
+  
+  def create_user(self, id, name, email, role, password):
+    user = self.model(
+      id=id,
+      name=name,
+      email=self.normalize_email(email),
+      role=role
+    )
+    user.set_password(password)
+    user.save(using=self._db)
+    return user
+class User(Person, AbstractBaseUser):
+  password = models.TextField()
   email = models.EmailField(unique=True)
   role = models.ForeignKey(
     Role,
     on_delete=models.PROTECT
   )
-  dogs = models.ManyToManyField(
-    Dog,
-    through='Parenthood',
-    symmetrical=False
-  )
-	
+  last_login = None
+
+  objects = UserManager()
+
+  USERNAME_FIELD = 'id'
+  REQUIRED_FIELDS = ['name', 'password', 'email', 'role']
   class Meta:
     db_table = 'doges\".\"user'
     managed = False
