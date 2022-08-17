@@ -8,4 +8,5 @@ jobs:
         uses: actions/checkout@v3
       - name: test
         run: |
-          cat resources/example.json | grep -oP '\$\{\{.+?\}\}' | xargs -I % '\"$(echo %)\"'
+          cat resources/example.json | grep -oP '\$\{\{.+?\}\}' | xargs -I % echo "TMPL_%=$(echo %)" >> $GITHUB_ENV
+          printenv
