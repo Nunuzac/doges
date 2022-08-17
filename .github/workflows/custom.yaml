@@ -7,6 +7,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: test
+        env:
+          GITHUB_CONTEXT: ${{ github }}
         run: |
           cat resources/example.json | grep -oP '\$\{\{.+?\}\}' | xargs -I % echo "TMPL_%=$(echo %)" >> $GITHUB_ENV
           printenv
