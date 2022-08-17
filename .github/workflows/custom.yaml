@@ -6,9 +6,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: test
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: |
-          cat resources/example.json | grep -oP '\$\{\{.+?\}\}' | xargs -I % echo "TMPL_%=$(echo %)" >> $GITHUB_ENV
-          printenv
+      - name: awesome
+        uses: Nunuzac/my-action@master
+        with:
+          payload-file-path: resources/example.json
+          github-context: ${{ toJSON(github) }}
