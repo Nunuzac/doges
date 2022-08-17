@@ -9,7 +9,7 @@ jobs:
       - name: test
         run: |
           which echo
-          echo "${{ ggithub.server_url }}"
+          echo "${{ github.server_url }}"
       - name: awesome
         uses: Nunuzac/my-action@master
         with:
