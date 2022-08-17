@@ -5,7 +5,7 @@
 			"elements": [
 				{
 					"type": "mrkdwn",
-					"text": "${{ env.NOTIFICATION_HEADER }}"
+					"text": "%NOTIFICATION_HEADER"
 				}
 			]
 		},
@@ -40,6 +40,15 @@
 		},
         {
 			"type": "divider"
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "%NOTIFICATION_FOOTER"
+				}
+			]
 		}
 	]
 }
