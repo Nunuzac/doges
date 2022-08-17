@@ -5,6 +5,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: setup
-        run: echo '::set-output name=PAYLOAD::$(printenv)'
+        run: echo '::set-output name=PAYLOAD::$(echo `PAYLOAD`)'
+      - name: print
+        run : printenv
       - name: awesome
         uses: Nunuzac/my-action@master
