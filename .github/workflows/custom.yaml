@@ -9,4 +9,5 @@ jobs:
       - name: awesome
         uses: Nunuzac/my-action@master
         with:
-          payload-file-path: resources/example.json
+          template-input-path: resources/example.json
+          template-output-path: resources/example_parsed.json
