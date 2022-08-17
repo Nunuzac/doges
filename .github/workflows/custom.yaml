@@ -10,4 +10,3 @@ jobs:
         uses: Nunuzac/my-action@master
         with:
           payload-file-path: resources/example.json
-          github-context: ${{ toJSON(github) }}
