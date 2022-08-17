@@ -9,7 +9,7 @@ jobs:
       - name: test
         run: |
           which echo
-          echo "${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          echo "${{ ggithub.server_url }}"
       - name: awesome
         uses: Nunuzac/my-action@master
         with:
