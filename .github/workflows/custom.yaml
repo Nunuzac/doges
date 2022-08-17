@@ -1,0 +1,10 @@
+name: awesome_action
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: setup
+        run: echo '::set-output name=PAYLOAD::$(printenv)'
+      - name: awesome
+        uses: Nunuzac/my-action@master
