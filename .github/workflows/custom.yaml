@@ -7,7 +7,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: test
-        run: echo "${{ github.server_url }}"
+        run: |
+          which echo
+          echo "${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
       - name: awesome
         uses: Nunuzac/my-action@master
         with:
