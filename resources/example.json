@@ -17,7 +17,7 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":merged:  <${{ github.event.pull_request.html_url || github.event.head_commit.url }}| Pull Request>"
+					"text": ":merged:  <${{ github.event.pull_request.html_url || github.event.head_commit.url || # }}| Pull Request>"
 				},
 				{
 					"type": "mrkdwn",
