@@ -5,9 +5,9 @@ on:
       - "**"
       - "!devel"
       - "!devel_latest"
-  jobs:
-    Notify on slack:
-      runs-on: ubuntu-latest
-      timeout-minutes: 160
-    steps:
-      - run: echo ${{ github }}
+jobs:
+  Notify on slack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 160
+  steps:
+    - run: echo ${{ github }}
