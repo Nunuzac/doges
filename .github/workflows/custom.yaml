@@ -13,8 +13,8 @@ jobs:
           template-output-path: resources/example_fixed.json
           replacements: |
             NOTIFICATION_HEADER=":warning:  `io_amr_ui` *image build failed*"
-            PR_URL="${{ github.event.pull_request.html_url || github.event.head_commit.url || github.server_url }}"
-            REPO_URL="${{ format('{0}/{1}', github.server_url, github.repository  }}"
+            PR_URL="${{ github.event.pull_request.html_url || github.event.head_commit.url || '#' }}"
+            REPO_URL="${{ github.server_url/github.repository  }}"
             SOURCE_BRANCH="${{ github.head_ref || github.ref_name }}"
             DEST_BRANCH="${{ github.base_ref || 'devel' }}"
             RUN_ID="${{ github.run_id }}"
