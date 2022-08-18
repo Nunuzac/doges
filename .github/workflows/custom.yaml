@@ -17,6 +17,5 @@ jobs:
             REPOSITORY="${{ github.repository }}"
             BRANCH="${{ github.head_ref || github.ref_name }}"
             RUN_ID="${{ github.run_id }}"
-            PR_URL=""
       - name: test
         run: cat resources/example_fixed.json
