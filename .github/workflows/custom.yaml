@@ -13,7 +13,10 @@ jobs:
           template-output-path: resources/example_fixed.json
           replacements: |
             NOTIFICATION_HEADER=":warning:  `io_amr_ui` *image build failed*"
-            NOTIFICATION_FOOTER=":dancing_pikachu:  better luck next time"
             SERVER_URL="${{ github.server_url }}"
+            REPOSITORY="${{ github.repository }}"
+            BRANCH="${{ github.head_ref || github.ref_name }}"
+            RUN_ID="${{ github.run_id }}"
+            PR_URL=""
       - name: test
         run: cat resources/example_fixed.json
