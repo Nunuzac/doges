@@ -9,6 +9,6 @@ jobs:
   Notify on slack:
     runs-on: ubuntu-latest
     timeout-minutes: 160
-  steps:
-    - name: Echo
-      run: echo ${{ github }}
+    steps:
+      - name: Echo
+        run: echo ${{ github }}
