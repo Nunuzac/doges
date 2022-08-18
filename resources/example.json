@@ -30,11 +30,11 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":evergreen_tree:  <${{ github.server_url }}/${{ github.repository }}/tree/${{ github.head_ref || github.ref_name }}| Branch>"
+					"text": ":evergreen_tree:  <${{ github.server_url }}/${{ github.repository }}/tree/${{ github.head_ref && github.ref_name }}| Branch>"
 				},
 				{
 					"type": "mrkdwn",
-					"text": ":memo:  <${{ github.server_url }}/${{ github.repository }}/compare/devel...${{ github.head_ref || github.ref_name }}| Changes>"
+					"text": ":memo:  <${{ github.server_url }}/${{ github.repository }}/compare/devel...${{ github.head_ref && github.ref_name }}| Changes>"
 				}
 			]
 		},
