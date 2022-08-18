@@ -17,11 +17,11 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":merged:  <${{ github.event.pull_request.html_url || github.event.head_commit.url || github.server_url }}| Pull Request>"
+					"text": ":merged:  <| Pull Request>"
 				},
 				{
 					"type": "mrkdwn",
-					"text": ":github:  <%SERVER_URL/%REPOSITORY/actions/runs/%RUN_ID| Run>"
+					"text": ":github:  <%REPO_URL/actions/runs/%RUN_ID| Run>"
 				}
 			]
 		},
@@ -30,11 +30,11 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":evergreen_tree:  <%SERVER_URL/%REPOSITORY/tree/%BRANCH| Branch>"
+					"text": ":evergreen_tree:  <%REPO_URL/tree/%SOURCE_BRANCH| Branch>"
 				},
 				{
 					"type": "mrkdwn",
-					"text": ":memo:  <%SERVER_URL/%REPOSITORY/compare/devel...%BRANCH| Changes>"
+					"text": ":memo:  <%REPO_URL/compare/%DEST_BRANCH...%SOURCE_BRANCH| Changes>"
 				}
 			]
 		},
