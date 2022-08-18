@@ -1,8 +1,8 @@
 {
 	"blocks": [
 		{
-			"type": "context",
-			"elements": [
+			"type": "section",
+			"fields": [
 				{
 					"type": "mrkdwn",
 					"text": "%NOTIFICATION_HEADER"
@@ -17,7 +17,7 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":merged:  <${{ github.event.pull_request.html_url || github.event.head_commit.url || # }}| Pull Request>"
+					"text": ":merged:  <${{ github.event.pull_request.html_url || github.event.head_commit.url || github.server_url }}| Pull Request>"
 				},
 				{
 					"type": "mrkdwn",
@@ -30,25 +30,16 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":evergreen_tree:  <${{ github.server_url }}/${{ github.repository }}/tree/${{ github.head_ref }}| Branch>"
+					"text": ":evergreen_tree:  <${{ github.server_url }}/${{ github.repository }}/tree/${{ github.head_ref || github.ref_name }}| Branch>"
 				},
 				{
 					"type": "mrkdwn",
-					"text": ":memo:  <${{ github.server_url }}/${{ github.repository }}/compare/devel...${{ github.head_ref }}| Changes>"
+					"text": ":memo:  <${{ github.server_url }}/${{ github.repository }}/compare/devel...${{ github.head_ref || github.ref_name }}| Changes>"
 				}
 			]
-		},
-        {
-			"type": "divider"
 		},
 		{
-			"type": "context",
-			"elements": [
-				{
-					"type": "mrkdwn",
-					"text": "%NOTIFICATION_FOOTER"
-				}
-			]
+			"type": "divider"
 		}
 	]
 }
