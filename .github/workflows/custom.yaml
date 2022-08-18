@@ -7,7 +7,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: notif
-        uses: rapyuta-robotics/rr_action_slack_template_fixer@master
+        uses: rapyuta-robotics/rr_action_slack_template_fixer@1.0.0
         with:
           template-input-path: resources/example.json
           template-output-path: resources/example_fixed.json
