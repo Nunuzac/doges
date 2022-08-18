@@ -10,4 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 160
   steps:
-    - run: echo ${{ github }}
+    - name: Echo
+      run: echo ${{ github }}
