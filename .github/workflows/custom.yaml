@@ -9,8 +9,9 @@ jobs:
       - name: awesome
         uses: Nunuzac/my-action@master
         with:
-          template-input-path: resources/example.json
+          template-input-path: resources/examples.json
           template-output-path: resources/example_parsed.json
           ad-hoc-replacements: |
             NOTIFICATION_HEADER=":warning:  `io_amr_ui` *image build failed*"
             NOTIFICATION_FOOTER=":dancing_pikachu:  better luck next time"
+            NOTIFICATION_FOO=":dancing_pikachu:  better luck next time
