@@ -6,7 +6,7 @@ on:
       - "!devel"
       - "!devel_latest"
 jobs:
-  Notify on slack:
+  notify_on_slack:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     steps:
