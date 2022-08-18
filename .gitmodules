@@ -1,0 +1,3 @@
+[submodule "awesome-action"]
+	path = awesome-action
+	url = https://github.com/Nunuzac/awesome-action
