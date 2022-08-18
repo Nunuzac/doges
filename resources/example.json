@@ -30,7 +30,7 @@
 			"fields": [
 				{
 					"type": "mrkdwn",
-					"text": ":evergreen_tree:  <${{ github.server_url }}/${{ github.repository }}/tree/${{ github.head_ref || github.ref_name }}| Branch>"
+					"text": ":evergreen_tree:  <%SERVER_URL/${{ github.repository }}/tree/${{ github.head_ref || github.ref_name }}| Branch>"
 				},
 				{
 					"type": "mrkdwn",
