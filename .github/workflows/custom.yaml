@@ -11,4 +11,4 @@ jobs:
     timeout-minutes: 160
     steps:
       - name: Echo
-        run: echo ${{ toJSON(github) }} >> file && cat file
+        run: echo '${{ toJSON(github) }}'
