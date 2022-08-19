@@ -1,14 +1,20 @@
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "**"
-      - "!devel"
-      - "!devel_latest"
 jobs:
   notify_on_slack:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     steps:
-      - name: Echo
-        run: echo '${{ toJSON(github) }}'
+      - name: Send slack notification
+        uses: Nunuzac/awesome-action@master
+        with:
+          payload-file-path: resources/example.json
+          replacements: |
+            NOTIFICATION_HEADER=":warning:  `io_amr`` *image build failed*"
+            PR_URL="${{ github.event.pull_request.html_url || github.event.head_commit.url || github.server_url }}"
+            REPO_URL="${{ github.server_url }}/${{ github.repository }}"
+            SOURCE_BRANCH="${{ github.head_ref || github.ref_name }}"
+            DEST_BRANCH="${{ github.base_ref || 'devel' }}"
+            RUN_ID="${{ github.run_id }}"
+          channel-id: C03R8GKPLP7
+          slack-bot-token: ${{ secrets.SLACK_NOTIFICATIONS_APP_TOKEN }}
