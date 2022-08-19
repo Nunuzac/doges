@@ -11,7 +11,7 @@ jobs:
         with:
           payload-file-path: resources/example.json
           replacements: |
-            NOTIFICATION_HEADER=":warning:  `io_amr`` *image build failed*"
+            NOTIFICATION_HEADER=":warning:  `io_amr` *image build failed*"
             PR_URL="${{ github.event.pull_request.html_url || github.event.head_commit.url || github.server_url }}"
             REPO_URL="${{ github.server_url }}/${{ github.repository }}"
             SOURCE_BRANCH="${{ github.head_ref || github.ref_name }}"
