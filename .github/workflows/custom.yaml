@@ -19,3 +19,4 @@ jobs:
             RUN_ID="${{ github.run_id }}"
           channel-id: C03R8GKPLP7
           slack-bot-token: ${{ secrets.SLACK_NOTIFICATIONS_APP_TOKEN }}
+      - run: cat resources/example.json.fixed
