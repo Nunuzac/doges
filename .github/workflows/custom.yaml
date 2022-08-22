@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     steps:
-      - run: echo "${{ github }}"
+      - run: echo "${{ toJSON(github) }}"
