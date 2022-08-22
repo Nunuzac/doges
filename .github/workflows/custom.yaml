@@ -12,4 +12,4 @@ jobs:
     timeout-minutes: 160
     steps:
       - run: echo "In"
-        if: ${{ contains((base_ref || ref), 'master') }}
+        if: ${{ contains((github.base_ref || github.ref), 'master') }}
