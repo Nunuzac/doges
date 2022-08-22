@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     env:
-      PA_DOCKER_REPO: ubuntu/library/ubuntu
-      UI_DOCKER_REPO: ubuntu_i386/osrf/ubuntu_i386
+      PA_DOCKER_REPO: ubuntu
+      UI_DOCKER_REPO: osrf/ubuntu_i386
     steps:
       - name: Tag name
         id: tag_name
