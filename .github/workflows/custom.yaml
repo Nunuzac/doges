@@ -11,4 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     steps:
-      - run: echo "${{ toJSON(github) }}"
+      - run: echo "In"
+        if: ${{ contains((base_ref || ref), 'release') }}
