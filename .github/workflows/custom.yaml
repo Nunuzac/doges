@@ -1,31 +1,15 @@
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - **
+  push:
+    branches:
+      - **
 jobs:
   notify_on_slack:
     runs-on: ubuntu-latest
     timeout-minutes: 160
-    env:
-      PA_DOCKER_REPO: ubuntu
-      UI_DOCKER_REPO: osrf/ubuntu_i386
     steps:
-      - name: Tag name
-        id: tag_name
-        run: echo ::set-output name=GIT_TAG::xenial
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Pull images
-        run: |
-          docker pull ubuntu:${{ steps.tag_name.outputs.GIT_TAG }}
-          docker pull osrf/ubuntu_i386:${{ steps.tag_name.outputs.GIT_TAG }}
-      - name: Set-up built image links
-        id: links
-        run: |
-          PA_SHA=$(docker inspect --format='{{.RepoDigests}}' ${{ env.PA_DOCKER_REPO }}:${{ steps.tag_name.outputs.GIT_TAG }} | sed -e 's/.\+@\(.\+\)\]/\1/g')
-          UI_SHA=$(docker inspect --format='{{.RepoDigests}}' ${{ env.UI_DOCKER_REPO }}:${{ steps.tag_name.outputs.GIT_TAG }} | sed -e 's/.\+@\(.\+\)\]/\1/g')
-          echo ::set-output name=PA_LINK::https://hub.docker.com/layers/${{ env.PA_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$PA_SHA
-          echo ::set-output name=UI_LINK::https://hub.docker.com/layers/${{ env.UI_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$UI_SHA
-      - name: Test
-        run: |
-          echo ${{ steps.links.outputs.PA_LINK }}
-          echo ${{ steps.links.outputs.UI_LINK }}
+      - run: echo "${{ github.ref }}"
 
