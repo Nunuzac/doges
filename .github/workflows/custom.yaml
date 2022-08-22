@@ -27,8 +27,8 @@ jobs:
         run: |
           PA_SHA=$(docker inspect --format='{{.RepoDigests}}' ${{ env.PA_DOCKER_REPO }}:${{ steps.tag_name.outputs.GIT_TAG }} | sed -e 's/.\+@\(.\+\)\]/\1/g')
           UI_SHA=$(docker inspect --format='{{.RepoDigests}}' ${{ env.UI_DOCKER_REPO }}:${{ steps.tag_name.outputs.GIT_TAG }} | sed -e 's/.\+@\(.\+\)\]/\1/g')
-          echo ::set-output name=PA_LINK::https://hub.docker.com/layers/${{ PA_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$PA_SHA
-          echo ::set-output name=UI_LINK::https://hub.docker.com/layers/${{ UI_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$UI_SHA
+          echo ::set-output name=PA_LINK::https://hub.docker.com/layers/${{ env.PA_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$PA_SHA
+          echo ::set-output name=UI_LINK::https://hub.docker.com/layers/${{ env.UI_DOCKER_REPO }}/${{ steps.tag_name.outputs.GIT_TAG }}/images/$UI_SHA
       - name: Test
         run: |
           echo ${{ steps.links.outputs.PA_LINK }}
