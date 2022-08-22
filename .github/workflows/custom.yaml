@@ -8,11 +8,6 @@ jobs:
       PA_DOCKER_REPO: ubuntu/library/ubuntu
       UI_DOCKER_REPO: ubuntu_i386/osrf/ubuntu_i386
     steps:
-      - name: Docker Login
-        uses: docker/login-action@v1.12.0
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
       - name: Tag name
         id: tag_name
         run: echo ::set-output name=GIT_TAG::xenial
