@@ -12,4 +12,4 @@ jobs:
     timeout-minutes: 160
     steps:
       - run: echo "In"
-        if: ${{ contains((github.base_ref || github.ref), 'master') }}
+        if: ${{ always() && (contains((github.base_ref || github.ref), 'release') || github.event_name == 'push') }}
