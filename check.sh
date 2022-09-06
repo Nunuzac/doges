@@ -19,8 +19,8 @@ then
     base_command="$base_command | grep -v"
     for line in "${lines[@]}"
     do
-        base_command="$base_command -e $line"  
+        base_command="$base_command -e \"$line\""  
     done
 fi
 
-echo "$base_command"
+echo $base_command
