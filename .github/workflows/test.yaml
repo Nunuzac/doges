@@ -13,5 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Tag name
         id: tag_name
-        run: check.sh doges ${{ env.LAUNCH_CHECK_EXCLUDES }}
+        run: ./check.sh doges ${{ env.LAUNCH_CHECK_EXCLUDES }}
 
