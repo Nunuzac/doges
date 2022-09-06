@@ -12,5 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo $LAUNCH_CHECK_EXCLUDES
-      - run: ./check.sh doges ${{ env.LAUNCH_CHECK_EXCLUDES }}
-
+      - run: ./check.sh doges "${{ env.LAUNCH_CHECK_EXCLUDES }}"
