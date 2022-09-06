@@ -23,4 +23,4 @@ then
     done
 fi
 
-echo $base_command
+echo "$base_command"
