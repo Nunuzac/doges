@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 160
     env:
-      PA_DOCKER_REPO: ubuntu
-      UI_DOCKER_REPO: osrf/ubuntu_i386
+      LAUNCH_EXCLUDE: |
+        one
+        two
+        tree
     steps:
       - name: Tag name
         id: tag_name
