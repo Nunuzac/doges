@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 jobs:
-  notify_on_slack:
+  test:
     runs-on: self-hosted
     timeout-minutes: 160
     env:
@@ -11,7 +11,6 @@ jobs:
         tree
     steps:
       - uses: actions/checkout@v2
-      - name: Tag name
-        id: tag_name
-        run: ./check.sh doges ${{ env.LAUNCH_CHECK_EXCLUDES }}
+      - run: echo $LAUNCH_CHECK_EXCLUDES
+      - run: ./check.sh doges ${{ env.LAUNCH_CHECK_EXCLUDES }}
 
